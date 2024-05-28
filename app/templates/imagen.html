@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> API Call Result</title>
+        <style>
+            body {
+                background-image: url('/home/robotics/work/MiniChallenge/clase/BackGround.jpg');
+                /* Ajusta el tamaño de la imagen de fondo */
+                background-size: cover; /* Para cubrir todo el área del cuerpo */
+                /* Otras propiedades opcionales */
+                /* background-repeat: no-repeat; */
+                /* background-position: center center; */
+                /* background-attachment: fixed; */
+            }
+        </style>
+        <script>
+            function updateResult() {
+                fetch('/api/result')
+                .then(response => response.text())
+                .then(result => {
+                    document.getElementById
+                    ('result').textContent = result; //call the variable "result" from api.py
+                });
+            }
+            setInterval(updateResult, 200);
+        </script>
+        <script>
+            function updateImage() {
+                fetch('/api/image')
+                .then(response => response.text())
+                .then(result_img => {
+                    const container = document.getElementById('result_img')
+                    container.src = result_img
+                });
+            }
+            setInterval(updateImage, 200);
+        </script>
+    </head>
+    <body style="position:relative; width: 95vw; display: flex; align-items: center; flex-direction: column;">
+        <h1>Detección de Arucos</h1>
+        <p id="result"></p> <!--LOS RESULTADOS EN VIDA REAL--->
+        <div style="position:relative; width: 95vw; display: flex; flex-direction: column; align-items: center;">
+            <div><img id="result_img"></img></div> <!---->
+            <p id="result"></p> <!--LOS RESULTADOS EN VIDA REAL--->
+            <div style="display: flex; justify-content: space-between; width: 95vw; ">
+                
+                <div style="color: black; ">
+                    <div> Numero de Cuadro</div>
+                    <div> ID del Aruco</div>
+                    <div> Bordes</div>
+                    <div> Centro</div>
+                </div>
+                
+                <div style="color: black; ">
+                    <div> Numero de Cuadro</div>
+                    <div> ID del Aruco</div>
+                    <div> Bordes</div>
+                    <div> Centro</div>
+                </div>
+    
+                <div style="color: black; ">
+                    <div> Numero de Cuadro</div>
+                    <div> ID del Aruco</div>
+                    <div> Bordes</div>
+                    <div> Centro</div>
+                </div>
+    
+                <div style="color: black; ">
+                    <div> Numero de Cuadro</div>
+                    <div> ID del Aruco</div>
+                    <div> Bordes</div>
+                    <div> Centro</div>
+                </div>
+            </div>
+            <p id="result"></p> <!--LOS RESULTADOS EN VIDA REAL--->
+            <div>Kevin Alberto Crisostomo A00832188
+                Samantha Daniela Guanipa Ugas A01703936
+                Guillermo Emanuel Ayala Martínez A01197833
+                Laura Alejandra Méndez Campos - A00824473
+                André Borda Ramos - A01284398</div>
+            
+        </div>
+    </body>
+</html> 
